@@ -10,11 +10,16 @@ class Myconpodent extends React.Component {
   handleCick=(event)=>{
     console.log("click me");
     console.log("Tên tôi là",this.state.name);
+    this.setState({
+      name:"Nhung",
+      age:Math.floor((Math.random()*100)+1)
+    })
   }
 
   handleMouseOver=(event)=>{
     console.log(event.pageX);
   }
+
   //JSX
    render(){
     return(
@@ -25,7 +30,7 @@ class Myconpodent extends React.Component {
         Địa chỉ của tôi là {this.state.address},
         Tuổi tôi là {this.state.age}
         <button onMouseOver={this.handleMouseOver}> Hover me</button>
-        <button onClick={this.handleCick}>click</button>
+        <button onClick={(event)=>{this.handleCick()}}>click</button>
       </div>
       
       </>
