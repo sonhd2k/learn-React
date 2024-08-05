@@ -1,26 +1,40 @@
 import React from "react";
 
-class Dissplayinfor extends React.Component{
- render(){
-  //props=> viết tắt properties
-  // const {age,name}=this.props;
-  const {listUsers}=this.props;
-  console.log(listUsers);
-  return(
-    <div>
-      {/* <div> My name's {name}</div>
-      <div> My age's {age}</div> */}
-     {listUsers?.map((item,index) => {
-      return(
-        <div key={item.id}>
-          <div>tên tôi là {item.name}</div>
-          <div>tuổi tôi là {item.age}</div>
+class DisplayInfor extends React.Component {
+  state = {
+    isShowisUser: true
+  }
+
+  handleShowHide = () => {
+    this.setState({
+      isShowisUser: !this.state.isShowisUser
+    });
+  }
+
+  render() {
+    const { listUsers } = this.props;
+    console.log(listUsers);
+
+    return (
+      <div>
+        <div>
+          <button onClick={this.handleShowHide}>
+            {this.state.isShowisUser ? 'Hide list users' : 'Show list users'}
+          </button>
         </div>
-      )
-     })}
-       </div>
-  )
-}
+        {this.state.isShowisUser &&
+        <div>
+          {listUsers?.map((item) => (
+            <div key={item.id} className={+item.age > 18 ? "green" : "red"}>
+              <div>Tên tôi là {item.name}</div>
+              <div>Tuổi tôi là {item.age}</div>
+            </div>
+          ))}
+        </div>
+        }
+      </div>
+    );
+  }
 }
 
-export default Dissplayinfor;
+export default DisplayInfor;
