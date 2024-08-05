@@ -1,7 +1,7 @@
 // Class compodent
 // Function compodent
 import React from "react";
-import UserInfor from "./UserInfor";
+import AddUserInfor from "./AddUserInfor";
 import Dissplayinfor from "./Dissplayinfor";
 class Myconpodent extends React.Component {
 
@@ -12,18 +12,23 @@ class Myconpodent extends React.Component {
       {id:3,name:"Nam" ,age:"27"},
     ]
   }
+
+  handleAddNewUser=(userObj)=>{
+    this.setState({listUsers:[userObj,...this.state.listUsers]})
+
+  }
   //JSX
    render(){
     // const myInfor=['a','b','c']
     return(
       <div>
-     <UserInfor></UserInfor>
+     <AddUserInfor handleAddNewUser={this.handleAddNewUser}></AddUserInfor>
      <br></br>
      {/* <Dissplayinfor  name="Sơn" age="23"></Dissplayinfor>
      <hr></hr>
      <Dissplayinfor  name={'Nhung'} age={23} myInfor={myInfor}></Dissplayinfor>
      <hr></hr> */}
-     <Dissplayinfor listUsers={this.state.listUsers}></Dissplayinfor>
+     <Dissplayinfor listUsers={this.state.listUsers} ></Dissplayinfor>
       
       </div>
 

@@ -19,7 +19,7 @@ class DisplayInfor extends React.Component {
       <div>
         <div>
           <button onClick={this.handleShowHide}>
-            {this.state.isShowisUser ? 'Hide list users' : 'Show list users'}
+            {this.state.isShowisUser === true ? 'Hide list users' : 'Show list users'}
           </button>
         </div>
         {this.state.isShowisUser &&
