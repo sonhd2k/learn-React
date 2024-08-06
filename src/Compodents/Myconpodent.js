@@ -17,6 +17,13 @@ class Myconpodent extends React.Component {
     this.setState({listUsers:[userObj,...this.state.listUsers]})
 
   }
+  handleDeleteUser=(userId)=>{
+   let listUsersClone=[...this.state.listUsers]
+   listUsersClone=listUsersClone.filter(item=>item.id !== userId)
+   this.setState({
+    listUsers:listUsersClone
+   })
+  }
   //JSX
    render(){
     // const myInfor=['a','b','c']
@@ -28,7 +35,7 @@ class Myconpodent extends React.Component {
      <hr></hr>
      <Dissplayinfor  name={'Nhung'} age={23} myInfor={myInfor}></Dissplayinfor>
      <hr></hr> */}
-     <Dissplayinfor listUsers={this.state.listUsers} ></Dissplayinfor>
+     <Dissplayinfor listUsers={this.state.listUsers} handleDeleteUser={this.handleDeleteUser}></Dissplayinfor>
       
       </div>
 

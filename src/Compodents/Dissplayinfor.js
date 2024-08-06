@@ -33,11 +33,14 @@ class DisplayInfor extends React.Component {
             <div key={item.id} className={+item.age > 18 ? "green" : "red"}>
               <div>Tên tôi là {item.name}</div>
               <div>Tuổi tôi là {item.age}</div>
+              <button  onClick={()=>{this.props.handleDeleteUser(item.id)}}>Delete</button>
             </div>
           ))}
         </div>
+      
         }
       </div>
+
     );
   }
 }
