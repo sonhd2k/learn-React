@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import Myconpodent from './Compodents/Myconpodent';
 import React from 'react';
 

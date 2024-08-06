@@ -56,7 +56,7 @@ class AddUserInfor extends React.Component{
       Tuổi tôi là {this.state.age}
       <button onMouseOver={this.handleMouseOver}> Hover me</button>
       <button onClick={(event)=>{this.handleCick()}}>click</button>
-     <form onSubmit={(event)=>{this.handleOnSumit(event)}}>
+      <form onSubmit={(event)=>{this.handleOnSumit(event)}}>
       <label>Your name</label>
       <input type="text" value={this.state.name} onChange={(event)=>{this.handleOnChangeName(event)}}/>
       <label>Your age</label>
