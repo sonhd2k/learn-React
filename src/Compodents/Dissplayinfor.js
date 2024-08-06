@@ -1,5 +1,8 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React from "react";
-import "./DisplayInfor.scss"
+import "./DisplayInfor.scss";
+import logo from "./../logo.svg"
+
 
 class DisplayInfor extends React.Component {
   state = {
@@ -18,6 +21,7 @@ class DisplayInfor extends React.Component {
 
     return (
       <div className="Displayinfor">
+        <img src={logo}/>
         <div>
           <button onClick={this.handleShowHide}>
             {this.state.isShowisUser === true ? 'Hide list users' : 'Show list users'}
