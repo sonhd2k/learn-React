@@ -1,48 +1,44 @@
 /* eslint-disable jsx-a11y/alt-text */
-import React from "react";
 import "./DisplayInfor.scss";
-import logo from "./../logo.svg"
+import React, { useEffect, useState } from 'react'
 
-
-class DisplayInfor extends React.Component {
-  state = {
-    isShowisUser: true
+function Dissplayinfor(props) {
+  const {listUsers}=props
+  const [isShowHideListUser,setisShowHideListUser]=useState(true);
+  const handleShowHideListUser=()=>{
+    setisShowHideListUser(!isShowHideListUser)
   }
-
-  handleShowHide = () => {
-    this.setState({
-      isShowisUser: !this.state.isShowisUser
-    });
-  }
-
-  render() {
-    const { listUsers } = this.props;
-    console.log(listUsers);
-
-    return (
-      <div className="Displayinfor">
-        <img src={logo}/>
-        <div>
-          <button onClick={this.handleShowHide}>
-            {this.state.isShowisUser === true ? 'Hide list users' : 'Show list users'}
+  console.log("render");
+  useEffect(()=>{
+    if(listUsers.length ===0){
+      alert("Bạn đã xóa hết các phần tử")
+    }
+    console.log('useEffect');
+  },[listUsers])
+  return (
+    <div className="Displayinfor">
+      <div>
+        <button onClick={()=>{handleShowHideListUser()}}> 
+       
+          {isShowHideListUser === true ? "Hide List User" :"Show List User"}
           </button>
-        </div>
-        {this.state.isShowisUser &&
-        <div>
+      </div>
+       {isShowHideListUser &&
+        <>
           {listUsers?.map((item) => (
             <div key={item.id} className={+item.age > 18 ? "green" : "red"}>
               <div>Tên tôi là {item.name}</div>
               <div>Tuổi tôi là {item.age}</div>
-              <button  onClick={()=>{this.props.handleDeleteUser(item.id)}}>Delete</button>
+              <button  onClick={()=>{props.handleDeleteUser(item.id)}}>Delete</button>
             </div>
           ))}
-        </div>
-      
+        </>
         }
+      
+        
       </div>
-
-    );
-  }
+  )
 }
 
-export default DisplayInfor;
+
+export default Dissplayinfor;
